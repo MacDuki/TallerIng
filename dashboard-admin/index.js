@@ -98,4 +98,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const bookings = obtainBookings();
   renderizeBookings(bookings);
+
+  document
+    .getElementById("filterDate")
+    .addEventListener("change", filterBookings);
+  document
+    .querySelector(".filter-button")
+    .addEventListener("click", filterBookings);
+  document
+    .querySelector(".clear-button")
+    .addEventListener("click", clearFilter);
+
+  function filterBookings() {
+    const dateInput = document.getElementById("filterDate").value;
+    const allBookings = obtainBookings();
+    const filtered = dateInput
+      ? allBookings.filter((booking) => booking.fecha === dateInput)
+      : allBookings;
+    renderizeBookings(filtered);
+  }
+
+  function clearFilter() {
+    document.getElementById("filterDate").value = "";
+    renderizeBookings(obtainBookings());
+  }
 });
