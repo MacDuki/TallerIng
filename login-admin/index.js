@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
 
     const username = usernameInput.value.trim();
-    const password = passwordInput.value.trim();
+    const password = passwordInput.value;
 
     // Clear previous errors
     usernameError.textContent = "";
