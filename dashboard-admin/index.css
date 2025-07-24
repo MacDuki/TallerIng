@@ -1,0 +1,147 @@
+.admin-panel {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background-color: #f3f4f6;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admin-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #92400e;
+}
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #dc2626;
+  color: white;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #b91c1c;
+}
+
+.filter-section {
+  margin-bottom: 1.5rem;
+}
+
+.filter-label {
+  display: block;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.filter-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+.filter-input:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4);
+}
+
+.filter-button,
+.clear-button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-button {
+  background-color: #92400e;
+}
+
+.filter-button:hover {
+  background-color: #b45309;
+}
+
+.clear-button {
+  background-color: #6b7280;
+}
+
+.clear-button:hover {
+  background-color: #4b5563;
+}
+
+.table-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+
+.table-head {
+  background-color: #f9fafb;
+}
+
+.table-th {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f1f3f5;
+}
+
+.table-body {
+  background-color: white;
+}
+
+.table-body tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.bookings-count {
+  margin-top: 1rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+.table-body td {
+  padding: 1rem 1.5rem; /* Más ancho y alto por celda */
+  font-size: 0.95rem;
+  color: #111827;
+  vertical-align: middle;
+}
+.td-name {
+  font-weight: 600;
+}
