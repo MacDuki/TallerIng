@@ -2,9 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const togglePassword = document.getElementById("togglePassword");
   const passwordInput = document.getElementById("password");
-  const usernameInput = document.getElementById("username");
-  const usernameError = document.getElementById("usernameError");
+  const emailInput = document.getElementById("email");
+  const emailError = document.getElementById("emailError");
   const passwordError = document.getElementById("passwordError");
+
+  // Simple email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   togglePassword.addEventListener("click", function () {
     const type =
@@ -16,18 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
   loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const username = usernameInput.value.trim();
+    const email = emailInput.value.trim();
     const password = passwordInput.value;
 
     // Clear previous errors
-    usernameError.textContent = "";
+    emailError.textContent = "";
     passwordError.textContent = "";
 
     let hasErrors = false;
 
-    if (!username) {
-      usernameError.textContent = "Por favor ingresa un nombre de usuario";
-      usernameInput.focus();
+    if (!email) {
+      emailError.textContent = "Por favor ingresa un email";
+      emailInput.focus();
+      hasErrors = true;
+    } else if (!emailRegex.test(email)) {
+      emailError.textContent = "Por favor ingresa un email válido";
+      emailInput.focus();
       hasErrors = true;
     }
 
@@ -44,12 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (hasErrors) return;
 
-    const validLogin = username === "admin" && password === "admin";
+    const validLogin =
+      email === "admin@estiloclasico.com" && password === "admin";
 
     if (validLogin) {
       alert("¡Inicio de sesión exitoso!");
     } else {
-      usernameError.textContent = "Usuario o contraseña incorrectos";
+      emailError.textContent = "Email o contraseña incorrectos";
     }
   });
 });
