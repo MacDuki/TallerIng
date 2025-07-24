@@ -16,8 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Simple email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // TODO: Implement route protection - redirect to admin panel if already logged in
-  checkAuthStatus();
+  // Redirect to admin panel if already logged in
+  if (isAuthenticated()) {
+    window.location.href = "../dashboard-admin/index.html";
+    return;
+  }
 
   togglePassword.addEventListener("click", function () {
     const type =
@@ -75,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create session using auth helper
     createSession();
 
-    // TODO: Implement redirect to admin panel after login success
-    alert("¡Inicio de sesión exitoso!");
+    // Redirect to admin dashboard after successful login
+    window.location.href = "../dashboard-admin/index.html";
   }
 
   function handleFailedLogin() {
