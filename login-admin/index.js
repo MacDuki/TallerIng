@@ -13,10 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailError = document.getElementById("emailError");
   const passwordError = document.getElementById("passwordError");
 
-  // Hardcoded credentials
-  const ADMIN_EMAIL = "admin@barberia.com";
-  const ADMIN_PASSWORD = "pass123";
-
   // Simple email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -65,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Authenticate credentials
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+    // Authenticate credentials using auth helper
+    if (validateCredentials(email, password)) {
       // Successful login
       handleSuccessfulLogin();
     } else {
@@ -76,23 +72,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function handleSuccessfulLogin() {
-    // Save session to localStorage
-    /** @type {AdminSession} */
-    const sessionData = {
-      email: ADMIN_EMAIL,
-      loginTime: new Date().toISOString(),
-      isAuthenticated: true,
-    };
-
-    localStorage.setItem("adminSession", JSON.stringify(sessionData));
+    // Create session using auth helper
+    createSession();
 
     // TODO: Implement redirect to admin panel after login success
     alert("¡Inicio de sesión exitoso!");
   }
 
   function handleFailedLogin() {
-    // Clear any existing session
-    localStorage.removeItem("adminSession");
+    // Clear any existing session using auth helper
+    clearSession();
 
     // Show error message
     passwordError.textContent = "Credenciales incorrectas";
@@ -100,37 +89,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Clear password field
     passwordInput.value = "";
   }
-
-  function checkAuthStatus() {
-    const sessionData = localStorage.getItem("adminSession");
-
-    if (sessionData) {
-      try {
-        /** @type {AdminSession} */
-        const session = JSON.parse(sessionData);
-        if (session.isAuthenticated) {
-          // TODO: Implement redirect to admin panel for already logged in users
-          console.log("User is already authenticated");
-        }
-      } catch (error) {
-        // Invalid session data, remove it
-        localStorage.removeItem("adminSession");
-      }
-    }
-  }
-
-  /**
-   * Logs out the current user by removing session data
-   * TODO: Implement redirect to login page after logout
-   */
-  function logout() {
-    // Remove session from localStorage
-    localStorage.removeItem("adminSession");
-
-    // TODO: Implement redirect to login page
-    console.log("User logged out");
-  }
-
-  // Make logout function available globally for use in other pages
-  window.adminLogout = logout;
 });
