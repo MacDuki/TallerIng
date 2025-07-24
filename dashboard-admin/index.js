@@ -83,12 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
     bookings.forEach((b) => {
       const row = document.createElement("tr");
       row.innerHTML = `
-          <td class="td-name">${b.nombreCliente} ${b.apellidoCliente}</td>
-          <td>ID ${b.barberoSeleccionado}</td>
-          <td>ID ${b.servicio}</td>
-          <td>${b.fecha}</td>
-          <td>${b.hora}</td>
-          <td>${b.celularCliente}</td>
+          <td data-label="Cliente" class="td-name">${b.nombreCliente} ${b.apellidoCliente}</td>
+          <td data-label="Barbero">ID ${b.barberoSeleccionado}</td>
+          <td data-label="Servicio">ID ${b.servicio}</td>
+          <td data-label="Fecha">${b.fecha}</td>
+          <td data-label="Hora">${b.hora}</td>
+          <td data-label="Contacto">${b.celularCliente}</td>
         `;
       tableBody.appendChild(row);
     });
