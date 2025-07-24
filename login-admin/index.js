@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const togglePassword = document.getElementById("togglePassword");
   const passwordInput = document.getElementById("password");
   const usernameInput = document.getElementById("username");
+  const usernameError = document.getElementById("usernameError");
+  const passwordError = document.getElementById("passwordError");
 
   togglePassword.addEventListener("click", function () {
     const type =
@@ -17,30 +19,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
 
+    // Clear previous errors
+    usernameError.textContent = "";
+    passwordError.textContent = "";
+
+    let hasErrors = false;
+
     if (!username) {
-      alert("Por favor ingresa un nombre de usuario");
+      usernameError.textContent = "Por favor ingresa un nombre de usuario";
       usernameInput.focus();
-      return;
+      hasErrors = true;
     }
 
     if (!password) {
-      alert("Por favor ingresa una contraseña");
-      passwordInput.focus();
-      return;
+      passwordError.textContent = "Por favor ingresa una contraseña";
+      if (!hasErrors) passwordInput.focus();
+      hasErrors = true;
+    } else if (password.length < 4) {
+      passwordError.textContent =
+        "La contraseña debe tener al menos 4 caracteres";
+      if (!hasErrors) passwordInput.focus();
+      hasErrors = true;
     }
 
-    if (password.length < 4) {
-      alert("La contraseña debe tener al menos 4 caracteres");
-      passwordInput.focus();
-      return;
-    }
+    if (hasErrors) return;
 
     const validLogin = username === "admin" && password === "admin";
 
     if (validLogin) {
       alert("¡Inicio de sesión exitoso!");
     } else {
-      alert("Usuario o contraseña incorrectos");
+      usernameError.textContent = "Usuario o contraseña incorrectos";
     }
   });
 });
