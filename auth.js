@@ -67,13 +67,14 @@ function isAuthenticated() {
 
 /**
  * Checks authentication status and handles accordingly
+ * @param {string} redirectUrl - URL to redirect to if authenticated (optional)
  */
-function checkAuthStatus() {
+function checkAuthStatus(redirectUrl = "../dashboard-admin/index.html") {
   const session = getSession();
 
   if (session && session.isAuthenticated) {
-    // TODO: Implement redirect to admin panel for already logged in users
-    console.log("User is already authenticated");
+    // Redirect to admin panel for already logged in users
+    window.location.href = redirectUrl;
   }
 }
 
@@ -86,11 +87,11 @@ function clearSession() {
 
 /**
  * Logs out the current user by removing session data
- * TODO: Implement redirect to login page after logout
+ * @param {string} redirectUrl - URL to redirect to after logout (optional)
  */
-function logout() {
+function logout(redirectUrl = "../login-admin/index.html") {
   clearSession();
 
-  // TODO: Implement redirect to login page
-  console.log("User logged out");
+  // Redirect to login page after logout
+  window.location.href = redirectUrl;
 }
