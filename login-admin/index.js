@@ -1,3 +1,10 @@
+/**
+ * @typedef {Object} AdminSession
+ * @property {string} email - The administrator's email address
+ * @property {string} loginTime - ISO string timestamp of when the session was created
+ * @property {boolean} isAuthenticated - Flag indicating if the user is authenticated
+ */
+
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const togglePassword = document.getElementById("togglePassword");
@@ -8,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Simple email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // TODO: Implement route protection - redirect to admin panel if already logged in
+  checkAuthStatus();
 
   togglePassword.addEventListener("click", function () {
     const type =
@@ -28,36 +38,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let hasErrors = false;
 
+    // Email validation
     if (!email) {
-      emailError.textContent = "Por favor ingresa un email";
-      emailInput.focus();
+      emailError.textContent = "El email es requerido";
       hasErrors = true;
     } else if (!emailRegex.test(email)) {
-      emailError.textContent = "Por favor ingresa un email válido";
-      emailInput.focus();
+      emailError.textContent = "Formato de email inválido";
       hasErrors = true;
     }
 
+    // Password validation
     if (!password) {
-      passwordError.textContent = "Por favor ingresa una contraseña";
-      if (!hasErrors) passwordInput.focus();
+      passwordError.textContent = "La contraseña es requerida";
       hasErrors = true;
-    } else if (password.length < 4) {
+    } else if (password.length < 6) {
       passwordError.textContent =
-        "La contraseña debe tener al menos 4 caracteres";
-      if (!hasErrors) passwordInput.focus();
+        "La contraseña debe tener al menos 6 caracteres";
       hasErrors = true;
     }
 
-    if (hasErrors) return;
+    if (hasErrors) {
+      return;
+    }
 
-    const validLogin =
-      email === "admin@estiloclasico.com" && password === "admin";
-
-    if (validLogin) {
-      alert("¡Inicio de sesión exitoso!");
+    // Authenticate credentials using auth helper
+    if (validateCredentials(email, password)) {
+      // Successful login
+      handleSuccessfulLogin();
     } else {
-      emailError.textContent = "Email o contraseña incorrectos";
+      // Failed login
+      handleFailedLogin();
     }
   });
+
+  function handleSuccessfulLogin() {
+    // Create session using auth helper
+    createSession();
+
+    // TODO: Implement redirect to admin panel after login success
+    alert("¡Inicio de sesión exitoso!");
+  }
+
+  function handleFailedLogin() {
+    // Clear any existing session using auth helper
+    clearSession();
+
+    // Show error message
+    passwordError.textContent = "Credenciales incorrectas";
+
+    // Clear password field
+    passwordInput.value = "";
+  }
 });
