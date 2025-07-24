@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../auth.js"></script>
+    <title>Admin-Dashboard</title>
+  </head>
+  <body>
+    <!-- UH-07 -->
+    <section id="adminPanel" class="admin-panel">
+      <div class="admin-container">
+        <div class="admin-header">
+          <h2 class="admin-title">Panel de Administración</h2>
+          <button onclick="logout()" class="logout-button">
+            Cerrar Sesión
+          </button>
+        </div>
+
+        <div class="filter-section">
+          <label for="filterDate" class="filter-label"
+            >Filtrar por fecha:</label
+          >
+          <input type="date" id="filterDate" class="filter-input" />
+          <button onclick="filterBookings()" class="filter-button">
+            Filtrar
+          </button>
+          <button onclick="clearFilter()" class="clear-button">Limpiar</button>
+        </div>
+
+        <div class="table-container">
+          <div class="table-scroll">
+            <table class="booking-table">
+              <thead class="table-head">
+                <tr>
+                  <th class="table-th">Cliente</th>
+                  <th class="table-th">Barbero</th>
+                  <th class="table-th">Servicio</th>
+                  <th class="table-th">Fecha</th>
+                  <th class="table-th">Hora</th>
+                  <th class="table-th">Contacto</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTableBody" class="table-body">
+                <!-- Inyección por JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Inyección por JS -->
+        <div class="bookings-count" id="bookingsCount"></div>
+      </div>
+    </section>
+  </body>
+</html>
