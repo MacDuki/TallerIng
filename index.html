@@ -7,7 +7,55 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h2>Estilo Clásico</h2>
+        </div>
+        
+        <div class="nav-menu">
+          <a href="#hero" class="nav-link">Inicio</a>
+          <a href="#trabajos" class="nav-link">Trabajos</a>
+          <a href="#barberos" class="nav-link">Barberos</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+        </div>
+        
+        <div class="nav-buttons">
+          <a href="/login-admin/index.html" class="nav-btn nav-btn-secondary">Login</a>
+          <a href="/reserva/index.html" class="nav-btn nav-btn-primary">Reservar</a>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div class="mobile-menu">
+        <a href="#hero" class="mobile-nav-link">Inicio</a>
+        <a href="#trabajos" class="mobile-nav-link">Trabajos</a>
+        <a href="#barberos" class="mobile-nav-link">Barberos</a>
+        <a href="#contacto" class="mobile-nav-link">Contacto</a>
+        <a href="/login-admin/index.html" class="mobile-nav-link">Login</a>
+        <a href="/reserva/index.html" class="mobile-nav-link">Reservar</a>
+      </div>
+    </nav>
+
     <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1 class="hero-title">Estilo Clasico</h1>
+            <p class="hero-subtitle">Donde la tradicion se encuentra con la modernidad</p>
+            <a href="/reserva/index.html" class="hero-cta">Reservar Cita</a>
+          </div>
+        </div>
+      </section>
       <!-- Seccion de trabajos -->
       <section id="trabajos" class="trabajos-section">
         <div class="trabajos-container">
@@ -95,6 +143,16 @@
         </div>
       </section>
 
+      <!-- Seccion de barberos -->
+      <section id="barberos" class="barberos-section">
+        <div class="barberos-container">
+          <h2 class="barberos-title">Nuestros Barberos</h2>
+          <div class="barberos-grid" id="barberos-grid">
+            <!-- Barberos will be dynamically loaded here -->
+          </div>
+        </div>
+      </section>
+
       <!-- Seccion de contacto -->
       <section id="contacto">
         <div class="contact-container">
@@ -173,13 +231,13 @@
       </section>
     </main>
     <div id="modal" class="lightbox">
-      <span class="lightbox-close" onclick="closeModal(8)">&times;</span>
+      <span class="lightbox-close" onclick="closeModal()">&times;</span>
       <div class="modal-content">
         <img id="modal-img" class="modal-img" />
         <h3 id="modal-title"></h3>
         <p id="modal-text"></p>
       </div>
     </div>
-    <script src="./main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
