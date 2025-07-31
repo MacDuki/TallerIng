@@ -10,35 +10,8 @@ import {
   clearAllReservas,
 } from "./reservas";
 
-// Mock localStorage para las pruebas
-const localStorageMock = (() => {
-  let store = {};
-
-  return {
-    getItem: (key) => store[key] || null,
-    setItem: (key, value) => {
-      store[key] = value.toString();
-    },
-    removeItem: (key) => {
-      delete store[key];
-    },
-    clear: () => {
-      store = {};
-    },
-  };
-})();
-
-beforeAll(() => {
-  // Reemplazar el localStorage global con nuestro mock
-  Object.defineProperty(window, "localStorage", {
-    value: localStorageMock,
-  });
-});
-
 beforeEach(() => {
-  // Limpiar el localStorage antes de cada prueba
   localStorage.clear();
-  jest.clearAllMocks();
 });
 
 describe("Reservas Module", () => {
