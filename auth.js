@@ -23,10 +23,14 @@ function validateCredentials(email, password) {
  * Creates and saves a new admin session
  * @returns {AdminSession} The created session data
  */
-function createSession() {
+function createSession(email, password) {
   /** @type {AdminSession} */
+  if (!validateCredentials(email, password)) {
+    return null;
+  }
+
   const sessionData = {
-    email: ADMIN_EMAIL,
+    email,
     loginTime: new Date().toISOString(),
     isAuthenticated: true,
   };
