@@ -1,11 +1,18 @@
 // Import data and reservation functions
 import { BARBEROS, SERVICIOS } from "../data.js";
 import { getReservas } from "../reservas.js";
+import { isAuthenticated, logout } from "../auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   if (!isAuthenticated()) {
     window.location.href = "../login-admin/index.html";
     return;
+  }
+
+  // Set up logout button event listener
+  const logoutButton = document.getElementById("logoutButton");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", logout);
   }
 
   // Helper function to get barber name by ID

@@ -95,3 +95,14 @@ function logout(redirectUrl = "../login-admin/index.html") {
   // Redirect to login page after logout
   window.location.href = redirectUrl;
 }
+
+// Export functions for testing and module usage
+export {
+  validateCredentials,
+  createSession,
+  getSession,
+  isAuthenticated,
+  checkAuthStatus,
+  clearSession,
+  logout,
+};

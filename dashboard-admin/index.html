@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../auth.js"></script>
     <link rel="stylesheet" href="./index.css" />
     <script type="module" src="./index.js"></script>
 
@@ -15,9 +14,7 @@
       <div class="admin-container">
         <div class="admin-header">
           <h2 class="admin-title">Panel de Administración</h2>
-          <button onclick="logout()" class="logout-button">
-            Cerrar Sesión
-          </button>
+          <button id="logoutButton" class="logout-button">Cerrar Sesión</button>
         </div>
 
         <div class="filter-section">
