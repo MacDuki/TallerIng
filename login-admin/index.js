@@ -74,16 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Authenticate credentials using auth helper
     if (validateCredentials(email, password)) {
       // Successful login
-      handleSuccessfulLogin();
+      handleSuccessfulLogin(email, password);
     } else {
       // Failed login
       handleFailedLogin();
     }
   });
 
-  function handleSuccessfulLogin() {
+  function handleSuccessfulLogin(email, password) {
     // Create session using auth helper
-    createSession();
+    createSession(email, password);
 
     // Redirect to admin dashboard after successful login
     window.location.href = "../dashboard-admin/index.html";
