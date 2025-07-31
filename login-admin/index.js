@@ -5,6 +5,13 @@
  * @property {boolean} isAuthenticated - Flag indicating if the user is authenticated
  */
 
+// Import auth functions
+import {
+  validateCredentials,
+  createSession,
+  isAuthenticated,
+} from "../auth.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const togglePassword = document.getElementById("togglePassword");
