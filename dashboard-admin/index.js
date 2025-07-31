@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set up logout button event listener
   const logoutButton = document.getElementById("logoutButton");
   if (logoutButton) {
-    logoutButton.addEventListener("click", logout);
+    logoutButton.addEventListener("click", () => logout());
   }
 
   // Helper function to get barber name by ID
