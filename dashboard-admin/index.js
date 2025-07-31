@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Helper function to format date for display
   function formatDate(dateString) {
-    const date = new Date(dateString);
+    // Parse date components manually to avoid timezone issues
+    const [year, month, day] = dateString.split("-").map(Number);
+    const date = new Date(year, month - 1, day); // month is 0-indexed
     return date.toLocaleDateString("es-ES", {
       weekday: "short",
       year: "numeric",
