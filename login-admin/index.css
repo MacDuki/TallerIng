@@ -3,7 +3,50 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Estilos para el grupo de botones */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
 
+.button-group .secondary-btn,
+.button-group .login-btn {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* Estilos para el botón secundario */
+.secondary-btn {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  padding: 0; /* Eliminamos el padding del botón para que el enlace lo controle */
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-default);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.secondary-btn a {
+  display: block;
+  padding: 14px;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+.secondary-btn:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-secondary);
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg-tertiary);
