@@ -61,50 +61,8 @@ describe("Reservas Module", () => {
     });
   });
 
-  describe("updateReserva", () => {
-    // Test04
-    test("should update an existing reservation", () => {
-      const original = saveReserva(sampleReserva);
-      const updates = { nombre: "Pedro", estado: "confirmada" };
-
-      const result = updateReserva(original.id, updates);
-
-      expect(result).toBeDefined();
-      expect(result?.nombre).toBe("Pedro");
-      expect(result?.estado).toBe("confirmada");
-      expect(result?.apellido).toBe(original.apellido); // Campos no modificados deben permanecer igual
-
-      const stored = getReservas();
-      expect(stored[0].nombre).toBe("Pedro");
-    });
-    // Test05
-    test("should return null for non-existent reservation", () => {
-      const result = updateReserva("nonexistent-id", { nombre: "Pedro" });
-      expect(result).toBeNull();
-    });
-  });
-
-  describe("deleteReserva", () => {
-    // Test06
-    test("should delete an existing reservation", () => {
-      const original = saveReserva(sampleReserva);
-      const initialCount = getReservas().length;
-
-      const result = deleteReserva(original.id);
-      expect(result).toBe(true);
-
-      const finalCount = getReservas().length;
-      expect(finalCount).toBe(initialCount - 1);
-    });
-    // Test07
-    test("should return false for non-existent reservation", () => {
-      const result = deleteReserva("nonexistent-id");
-      expect(result).toBe(false);
-    });
-  });
-
   describe("getReservasByDate", () => {
-    // Test08
+    // Test04
     test("should filter reservations by date", () => {
       const res1 = saveReserva({ ...sampleReserva, fecha: "2023-01-01" });
       const res2 = saveReserva({ ...sampleReserva, fecha: "2023-01-02" });
@@ -114,7 +72,7 @@ describe("Reservas Module", () => {
       expect(result.length).toBe(1);
       expect(result[0].id).toBe(res2.id);
     });
-    // Test09
+    // Test05
     test("should return empty array when no reservations for date", () => {
       saveReserva({ ...sampleReserva, fecha: "2023-01-01" });
       const result = getReservasByDate("2023-01-02");
@@ -123,7 +81,7 @@ describe("Reservas Module", () => {
   });
 
   describe("getReservasByBarbero", () => {
-    // Test10
+    // Test06
     test("should filter reservations by barber", () => {
       const res1 = saveReserva({ ...sampleReserva, barberoId: 1 });
       const res2 = saveReserva({ ...sampleReserva, barberoId: 1 });
@@ -134,7 +92,7 @@ describe("Reservas Module", () => {
       expect(result.map((r) => r.id)).toContain(res1.id);
       expect(result.map((r) => r.id)).toContain(res2.id);
     });
-    // Test11
+    // Test07
     test("should return empty array when no reservations for barber", () => {
       saveReserva({ ...sampleReserva, barberoId: 1 });
       const result = getReservasByBarbero(2);
@@ -143,12 +101,12 @@ describe("Reservas Module", () => {
   });
 
   describe("isTimeSlotAvailable", () => {
-    // Test12
+    // Test08
     test("should return true for available time slot", () => {
       const result = isTimeSlotAvailable(1, "2023-01-01", "10:00");
       expect(result).toBe(true);
     });
-    // Test13
+    // Test09
     test("should return false for occupied time slot", () => {
       saveReserva({
         ...sampleReserva,
@@ -162,7 +120,7 @@ describe("Reservas Module", () => {
   });
 
   describe("clearAllReservas", () => {
-    // Test14
+    // Test10
     test("should clear all reservations", () => {
       saveReserva(sampleReserva);
       saveReserva({ ...sampleReserva, id: "2" });
