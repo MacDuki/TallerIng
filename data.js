@@ -61,23 +61,37 @@ export const BARBEROS = [
 export const SERVICIOS = [
   {
     id: 1,
-    nombre: "Barbería",
+    nombre: "Corte de pelo",
     descripcion:
-      "Corte de cabello, arreglo de barba y bigote, afeitado clásico y diseño personalizado para resaltar tu estilo.",
+      "Corte de cabello clásico y diseño personalizado para resaltar tu estilo.",
     precio: 450,
   },
   {
     id: 2,
+    nombre: "Rasurada de barba",
+    descripcion:
+      "Afeitado tradicional con navaja y tratamientos para barba, logrando un acabado preciso y suave.",
+    precio: 350,
+  },
+  {
+    id: 3,
     nombre: "Colorimetría",
     descripcion:
       "Tintes, mechas y técnicas de color para cabello y barba, utilizando productos de alta calidad para lograr el tono perfecto.",
     precio: 800,
   },
   {
-    id: 3,
-    nombre: "Tratamientos Capilares",
+    id: 4,
+    nombre: "Lavado y acondicionamiento",
     descripcion:
-      "Servicios de hidratación, reparación y fortalecimiento del cabello, ideales para mantenerlo sano y con brillo.",
-    precio: 700,
+      "Limpieza profunda y tratamiento hidratante para el cabello, dejándolo suave, manejable y con brillo natural.",
+    precio: 300,
+  },
+  {
+    id: 5,
+    nombre: "Servicio premium de nutrición del cabello",
+    descripcion:
+      "Tratamiento intensivo con productos profesionales para restaurar y nutrir el cabello dañado o maltratado.",
+    precio: 900,
   },
 ];
