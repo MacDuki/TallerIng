@@ -10,6 +10,7 @@ import {
   validateCredentials,
   createSession,
   isAuthenticated,
+  clearSession,
 } from "../auth.js";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -90,13 +91,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleFailedLogin() {
-    // Clear any existing session using auth helper
     clearSession();
 
-    // Show error message
+    // Mostrar y animar mensaje de error
     passwordError.textContent = "Credenciales incorrectas";
+    passwordError.classList.add("active");
 
-    // Clear password field
+    // Reiniciar animación si ya estaba activa
+    setTimeout(() => {
+      passwordError.classList.remove("active");
+    }, 500);
+
     passwordInput.value = "";
   }
 });

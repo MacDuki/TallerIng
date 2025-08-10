@@ -44,6 +44,36 @@ export const BARBEROS = [
       "Con dos décadas detrás de la navaja, Carlos ofrece experiencias de afeitado tradicional con toallas calientes.",
     fotoUrl: "/assets/carlos.png",
   },
+  {
+    id: 4,
+    nombre: "Mariana López Pérez",
+    edad: 31,
+    anios_experiencia: 10,
+    especialidad: "cortes de tendencia y peinados para eventos",
+    breveDescripcion:
+      "Mariana aporta un estilo único combinando técnicas modernas con un acabado impecable para ocasiones especiales.",
+    fotoUrl: "/assets/mariana.png",
+  },
+  {
+    id: 5,
+    nombre: "Sergio Ramírez Torres",
+    edad: 37,
+    anios_experiencia: 15,
+    especialidad: "fade y barbería urbana",
+    breveDescripcion:
+      "Experto en degradados perfectos y estilos urbanos, Sergio transforma cada corte en una declaración de estilo.",
+    fotoUrl: "/assets/sergio.png",
+  },
+  {
+    id: 6,
+    nombre: "Andrea Morales Castillo",
+    edad: 29,
+    anios_experiencia: 8,
+    especialidad: "barbería femenina y cortes creativos",
+    breveDescripcion:
+      "Andrea rompe estereotipos en el mundo de la barbería con cortes creativos que resaltan la personalidad de cada cliente.",
+    fotoUrl: "/assets/andrea.png",
+  },
 ];
 
 /**
