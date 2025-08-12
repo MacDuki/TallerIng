@@ -52,7 +52,7 @@ export const BARBEROS = [
     especialidad: "cortes de tendencia y peinados para eventos",
     breveDescripcion:
       "Mariana aporta un estilo único combinando técnicas modernas con un acabado impecable para ocasiones especiales.",
-    fotoUrl: "/assets/mariana.png",
+    fotoUrl: "/assets/mariana.webp",
   },
   {
     id: 5,
