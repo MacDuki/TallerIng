@@ -4,7 +4,7 @@ import { BARBEROS } from "./data.js";
 const trabajos = [
   {
     titulo: "Corte de Pelo Profesional",
-    imagen: "./assets/worksImages/P01-min.png",
+    imagen: "./assets/worksImages/P01-min.webp",
     texto:
       "Corte personalizado con estilo moderno y técnicas de precisión para cada tipo de rostro.",
   },
@@ -16,37 +16,37 @@ const trabajos = [
   },
   {
     titulo: "Rasurada de Barba",
-    imagen: "./assets/worksImages/P02-min.png",
+    imagen: "./assets/worksImages/P02-min.webp",
     texto:
       "Rasurado con navaja caliente, espuma especial y tratamiento hidratante post-afeitado.",
   },
   {
     titulo: "Colorimetría: Cambio de Look",
-    imagen: "./assets/worksImages/P03-min.png",
+    imagen: "./assets/worksImages/P03-min.webp",
     texto:
       "Aplicación de color según diagnóstico capilar y tono de piel. Resultado uniforme y vibrante.",
   },
   {
     titulo: "Colorimetría Creativa",
-    imagen: "./assets/worksImages/P03v2-min.png",
+    imagen: "./assets/worksImages/P03v2-min.webp",
     texto:
       "Tintes fantasía, degradados o balayage con técnicas avanzadas y productos de alta calidad.",
   },
   {
     titulo: "Lavado + Acondicionamiento",
-    imagen: "./assets/worksImages/P04-min.png",
+    imagen: "./assets/worksImages/P04-min.webp",
     texto:
       "Lavado con shampoo neutro y acondicionamiento profundo para dar brillo y suavidad.",
   },
   {
     titulo: "Lavado Detox",
-    imagen: "./assets/worksImages/P04v2-min.png",
+    imagen: "./assets/worksImages/P04v2-min.webp",
     texto:
       "Limpieza profunda del cuero cabelludo y sellado con hidratantes naturales.",
   },
   {
     titulo: "Servicio Premium",
-    imagen: "./assets/worksImages/P05-min.png",
+    imagen: "./assets/worksImages/P05-min.webp",
     texto:
       "Pack completo: corte, lavado, nutrición, afeitado y bebidas. Experiencia de barbería de lujo.",
   },
