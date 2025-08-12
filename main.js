@@ -10,7 +10,7 @@ const trabajos = [
   },
   {
     titulo: "Corte de Pelo Profesional",
-    imagen: "./assets/worksImages/P01v2-min.png",
+    imagen: "./assets/worksImages/P01v2-min.jpg",
     texto:
       "Corte personalizado con estilo a la moda y técnicas de precisión para cada tipo de rostro.",
   },
